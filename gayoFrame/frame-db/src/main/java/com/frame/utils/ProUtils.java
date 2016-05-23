@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Logger;
+
+import org.frame.log.impl.JdkLogger;
 
 /**
  * Properties的工具类
  */
 public class ProUtils {
+	org.frame.log.Logger logger = JdkLogger.getLog(ProUtils.class) ;
     Properties properties ;
     /**
      * 读取properties 文件信息
      * @param path
      */
     public void load( String path) throws IOException {
-        File file  = new File( path  ) ;
-        load(file);
-    }
-
-    public void load (File file ) throws IOException {
-        InputStream inputStream = new FileInputStream(file) ;
+    	logger.info();
+        InputStream inputStream = ProUtils.this.getClass().getResourceAsStream(path);;
         load(inputStream);
     }
     public void load (InputStream inputStream) throws IOException {

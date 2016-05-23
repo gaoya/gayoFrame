@@ -1,21 +1,17 @@
 package com.frame.utils;
 
-import junit.framework.TestCase;
-
-import java.util.List;
+import org.junit.Test;
 
 /**
  * Created by admin on 2016/5/23.
  */
-public class ProUtilsTest extends TestCase {
+public class ProUtilsTest {
     ProUtils proUtils = new ProUtils() ;
-    public void testLoad() throws Exception {
-        proUtils.load("classpath:/jdbc.properties");
-        List<String> list = proUtils.keys() ;
-        for (String key : list) {
-            System.out.println( key);
-        }
-    }
-
+   
+    @Test
+    public void testProUtils() throws Exception {
+		proUtils.load("jdbc.properties");
+		proUtils.keys();
+	}
 
 }
