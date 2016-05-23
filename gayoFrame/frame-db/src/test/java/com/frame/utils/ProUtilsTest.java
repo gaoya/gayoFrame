@@ -6,7 +6,7 @@ import org.junit.Test;
  * Created by admin on 2016/5/23.
  */
 public class ProUtilsTest {
-    ProUtils proUtils = new ProUtils() ;
+    ProFileUtils proUtils = new ProFileUtils() ;
    
     @Test
     public void testProUtils() throws Exception {

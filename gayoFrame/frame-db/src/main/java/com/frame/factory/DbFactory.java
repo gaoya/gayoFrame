@@ -1,4 +1,4 @@
-package com.frame.db;
+package com.frame.factory;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.frame.log.Logger;
 import org.frame.log.impl.JdkLogger;
+
+import com.frame.db.DbAccess;
 
 /**
  * 工厂方法，用于生产DbAccess对象
@@ -32,7 +34,8 @@ public class DbFactory {
 		//检查更新
 		check();
 		conn = dbs.get(0) ;
-		return dbs.remove(0);
+		dbs.remove(0) ;
+		return conn;
 	}
 	
 	private static void check() {

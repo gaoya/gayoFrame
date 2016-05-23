@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Logger;
-
 import org.frame.log.impl.JdkLogger;
 
 /**
  * Properties的工具类
  */
-public class ProUtils {
-	org.frame.log.Logger logger = JdkLogger.getLog(ProUtils.class) ;
+public class ProFileUtils {
+	org.frame.log.Logger logger = JdkLogger.getLog(ProFileUtils.class) ;
     Properties properties ;
     /**
      * 读取properties 文件信息
@@ -21,7 +19,7 @@ public class ProUtils {
      */
     public void load( String path) throws IOException {
     	logger.info();
-        InputStream inputStream = ProUtils.this.getClass().getResourceAsStream(path);;
+        InputStream inputStream = ProFileUtils.this.getClass().getResourceAsStream(path);;
         load(inputStream);
     }
     public void load (InputStream inputStream) throws IOException {
@@ -43,7 +41,7 @@ public class ProUtils {
      * @return
      */
     public List<String> keys() {
-        Enumeration enumerations = properties.keys() ;
+        Enumeration<?> enumerations = properties.keys() ;
         List<String> retList = new ArrayList<String>() ;
         while( enumerations.hasMoreElements()) {
             retList .add( (String) enumerations.nextElement()) ;

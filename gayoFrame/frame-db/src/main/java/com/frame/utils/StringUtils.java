@@ -14,7 +14,7 @@ public class StringUtils {
 	 */
 	public static boolean isEmpty(String msg) {
 		boolean flag = false ;
-		if (msg != null &&  msg.length() != 0) {
+		if (msg == null || msg.length() == 0) {
 			flag = true ;
 		}
 		return flag ;
