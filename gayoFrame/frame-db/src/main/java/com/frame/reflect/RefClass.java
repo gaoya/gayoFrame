@@ -20,8 +20,9 @@ public class RefClass {
 	public Object createObjectFromPackageName(String packageName) {
 		try {
 			if (packageName!=null ) {
-				cls = Class.forName(packageName) ;
-				return cls.newInstance() ;
+				Object o = Class.forName(packageName).newInstance() ;
+				this.cls = o.getClass() ;
+				return o ;
 			}
 		} catch (InstantiationException e) {
 			logger.error("创建对象失败!", e);
@@ -41,7 +42,7 @@ public class RefClass {
 	}
 
 	public String className() {
-		return cls.getName() ;
+		return this.cls.getName() ;
 	}
 	
 	/**
@@ -54,7 +55,7 @@ public class RefClass {
 	}
 	
 	public String classSimpleName() {
-		return cls.getSimpleName() ;
+		return this.cls.getSimpleName() ;
 	}
 	/**
 	 * 得到类中的所有属性
