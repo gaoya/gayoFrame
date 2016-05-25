@@ -27,14 +27,14 @@ public class DtimeFormat {
 	public static final String TIME12_FORMAT = "hhmmss" ;
 	//time - 24小时制
 	public static final String TIME24_FORMAT = "HHmmss" ;
-	private SimpleDateFormat formatType = null ;
+	private static SimpleDateFormat formatType = null ;
 	/**
 	 * 将输入的时间转换成相应的字符串类型的时间
 	 * @param format
 	 * @param date
 	 * @return
 	 */
-	public String  format(String format ,Date date) {
+	public static String  format(String format ,Date date) {
 		formatType = new SimpleDateFormat(format) ;
 		return format(formatType,date) ;
 	}
@@ -44,7 +44,7 @@ public class DtimeFormat {
 	 * @param date
 	 * @return
 	 */
-	public String format (Format format ,Date date ) {
+	public static String format (Format format ,Date date ) {
 		return format.format(date);
 	}
 	/**
@@ -54,12 +54,12 @@ public class DtimeFormat {
 	 * @return
 	 * @throws ParseException
 	 */
-	public Date parse(String format ,String dateString) throws ParseException {
+	public static Date parse(String format ,String dateString) throws ParseException {
 		formatType = new SimpleDateFormat(format) ;
 		return parse(formatType, dateString) ;
 	}
 	
-	public Date parse(SimpleDateFormat format ,String dateString) throws ParseException {
+	public static Date parse(SimpleDateFormat format ,String dateString) throws ParseException {
 		return format.parse(dateString) ;
 	}
 	/**
@@ -69,7 +69,7 @@ public class DtimeFormat {
 	 * @return
 	 * @throws ParseException
 	 */
-	public Date parse (String format , Date date ) throws ParseException {
+	public static Date parse (String format , Date date ) throws ParseException {
 		return parse(format, format(format, date));	
 	}
 	
