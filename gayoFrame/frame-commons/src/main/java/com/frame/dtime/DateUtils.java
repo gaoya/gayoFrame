@@ -14,20 +14,35 @@ public class DateUtils {
 	private static Integer year ;
 	private static Integer month ;
 	private static Integer day ;
-	private static Date current = null ; 
-	private static Calendar calendar = null ;
-	private static Integer startTime = 0 ;
-	private static Integer endTime = 0 ;
+	
+	protected static Integer hour ;
+	protected static Integer minute ;
+	protected static Integer second ;
+	
+	protected static Date current = null ; 
+	protected static Calendar calendar = null ;
+	protected static Integer startTime = 0 ;
+	protected static Integer endTime = 0 ;
+	
+	/**
+	 * 判断current是否不存在
+	 * @return
+	 */
+	protected static boolean isEmpty(){
+		return current == null ? true : false ;
+	}
+	
 	public static  Date current () {
-		
 		current = new Date() ;
-		
 		calendar = Calendar.getInstance() ;
 		calendar.setTime(current);
 		
 		year = calendar.get(Calendar.YEAR) ;
 		month = calendar.get(Calendar.MONTH) ;
 		day  = calendar.get(Calendar.DAY_OF_MONTH) ;
+		hour = calendar.get(Calendar.YEAR) ;
+		minute = calendar.get(Calendar.MONTH) ;
+		second  = calendar.get(Calendar.DAY_OF_MONTH) ;
 		
 		return new Date() ;
 	}
@@ -69,7 +84,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static boolean isCurrentLeap() {
-		if (year == null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		return isLeap(year);
@@ -82,7 +97,7 @@ public class DateUtils {
 	 * @param end
 	 * @return
 	 */
-	private static List<Integer> fromAtoB (int start ,int end) {
+	protected static List<Integer> fromAtoB (int start ,int end) {
 		List<Integer> ret = new ArrayList<Integer>() ;
 		
 		for (int i = start ; i < end ; i ++ ) {
@@ -108,8 +123,8 @@ public class DateUtils {
 	 * 	包括本月
 	 * @return
 	 */
-	public static List<Integer> leaveCurrentMonths () {
-		if ( month == null ) {
+	public static List<Integer> leaveMonthsOfCurrent () {
+		if (isEmpty()) {
 			current() ;
 		}
 		startTime = month +1 ;
@@ -122,8 +137,8 @@ public class DateUtils {
 	 * 得到这个月有多少天
 	 * @return
 	 */
-	public static Integer monthDays() {
-		if ( month == null) {
+	public static Integer daysOfMonth() {
+		if (isEmpty()) {
 			current() ;
 		}
 		Integer[] days = {31 ,isLeap(year)? 29 :28 ,31 ,30 ,31 ,30 ,31 ,31 ,30 ,31 ,30 ,31 } ;
@@ -143,7 +158,7 @@ public class DateUtils {
 	 * 得到下一年的日期
 	 */
 	public static Integer nextYear() {
-		if (year == null ) {
+		if (isEmpty()) {
 			current();
 		}
 		return year + 1 ;
@@ -153,7 +168,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static Date newDate(Integer addYears ,Integer addMonths ,Integer addDays) {
-		if (calendar ==null) {
+		if (isEmpty()) {
 			current() ;
 		}
 		calendar.add(Calendar.YEAR, addYears) ;
@@ -173,7 +188,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static int dayOfYear() {
-		if ( year == null ) {
+		if (isEmpty()) {
 			current () ;
 		}
 		return calendar.get(Calendar.DAY_OF_YEAR) ;
@@ -200,7 +215,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static Integer weekOfMonth() {
-		if (calendar == null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		
@@ -211,7 +226,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static Integer weekOfYear () {
-		if (calendar == null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		return calendar.get(Calendar.WEEK_OF_YEAR) ;
@@ -225,7 +240,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static Integer dayOfWeek() {
-		if (calendar == null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		return calendar.get(Calendar.DAY_OF_WEEK) ;
@@ -236,7 +251,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static Date lastDayOfMonth() {
-		return newDate(0,0, monthDays() - day) ;
+		return newDate(0,0, daysOfMonth() - day) ;
 		
 	}
 
@@ -246,7 +261,7 @@ public class DateUtils {
 	 * @return
 	 */
 	public static List<Integer> daysBeforeCurrent() {
-		if (day ==  null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		startTime = 1 ;
@@ -260,11 +275,11 @@ public class DateUtils {
 	 * @return
 	 */
 	public static List<Integer> daysAfterCurrent() {
-		if (day ==  null ) {
+		if (isEmpty()) {
 			current() ;
 		}
 		startTime = day ;
-		endTime = monthDays() ;
+		endTime = daysOfMonth() ;
 		return fromAtoB(startTime, endTime) ;
 	}
 	

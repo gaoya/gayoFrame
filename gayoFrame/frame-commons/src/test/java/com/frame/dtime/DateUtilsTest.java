@@ -35,13 +35,13 @@ public class DateUtilsTest {
 	}
 
 	@Test
-	public void testLeaveCurrentMonths() {
-		System.out.println(DateUtils.leaveCurrentMonths());
+	public void testLeaveMonthsOfCurrent() {
+		System.out.println(DateUtils.leaveMonthsOfCurrent());
 	}
 
 	@Test
 	public void testCurrentDays() {
-		System.out.println(DateUtils.monthDays());
+		System.out.println(DateUtils.dayOfYear());
 		System.out.println(DateUtils.yearDays());
 	}
 
