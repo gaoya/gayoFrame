@@ -9,32 +9,31 @@ package com.frame.reg;
 public class Matcher {
 	private static String regex  ;
 	//判断是否是字符
-	
-	private static String WORD = "\\w*" 	;
+	private final static String WORD = "\\w*" 	;
 	//判断是否是数字
-	private static String NUMBER = "^[0-9]*$" ;
+	private final static String NUMBER = "^[0-9]*$" ;
 	//匹配中文字符的正则表达式：  评注：匹配中文还真是个头疼的事，有了这个表达式就好办了 
-	private static String CHINA_WORD = "^[u4e00-u9fa5]*$" ;
+	private final static String CHINA_WORD = "^[u4e00-u9fa5]*$" ;
 	//匹配双字节字符(包括汉字在内)：  评注：可以用来计算字符串的长度（一个双字节字符长度计2，ASCII字符计1） 
-	private static String DOUBLE_WORD = "^[^x00-xff]*$" ;
+	private final static String DOUBLE_WORD = "^[^x00-xff]*$" ;
 	//非数字或字符
-	private static String NOT_WORD = "^[\\t|\\b|\\n]*$" ;
+	private final static String NOT_WORD = "^[\\t|\\b|\\n]*$" ;
 	// 匹配Email地址的正则表达式：
-	private static String EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*.\\w+([-.]\\w+)*$"; 
+	private final static String EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*.\\w+([-.]\\w+)*$"; 
 	//url
-	private static String URL = "^[a-zA-z]+://[^\\s]*$" ;
+	private final static String URL = "^[a-zA-z]+://[^\\s]*$" ;
 	// 匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：
-	private static String CARD = "^[a-zA-Z][a-zA-Z0-9_]{4,15}$" ;
+	private final static String CARD = "^[a-zA-Z][a-zA-Z0-9_]{4,15}$" ;
 	// 匹配国内电话号码： 评注：匹配形式如 0511-4405222 或 021-87888822 
-	private static String PHONE ="^\\d{3}-\\d{8}|\\d{4}-\\d{7}$" ;
+	private final static String PHONE ="^\\d{3}-\\d{8}|\\d{4}-\\d{7}$" ;
 	//匹配腾讯QQ号： 腾讯QQ号从10000开始 
-	private static String QQ = "^[1-9][0-9]{4,}$" ; 
+	private final static String QQ = "^[1-9][0-9]{4,}$" ; 
 	// 匹配中国邮政编码：  中国邮政编码为6位数字 
-	private static String ZIP = "^[1-9]d{5}$" ;
+	private final static String ZIP = "^[1-9]d{5}$" ;
 	// 匹配身份证：d{15}|d{18} 中国的身份证为15位或18位  X x 
-	private static String STAFF_CARD = "^\\d{14}|\\d{17}(\\d{1}|x|X)$" ;
+	private final static String STAFF_CARD = "^\\d{14}|\\d{17}(\\d{1}|x|X)$" ;
 	// 匹配ip4地址：d+.d+.d+.d+ 
-	private static String IP4 = "^\\d{3}\\.\\d{3}\\.\\d{3}\\.\\d{3}$" ;
+	private final static String IP4 = "^\\d{3}\\.\\d{3}\\.\\d{3}\\.\\d{3}$" ;
 //			　　匹配特定数字： 
 //			　　^[1-9]d*$　 　 //匹配正整数 
 //			　　^-[1-9]d*$ 　 //匹配负整数 
