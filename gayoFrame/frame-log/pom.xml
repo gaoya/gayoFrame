@@ -7,9 +7,7 @@
     <artifactId>gayoFrame</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.frame</groupId>
   <artifactId>frame-log</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <name>frame-log</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,7 +17,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

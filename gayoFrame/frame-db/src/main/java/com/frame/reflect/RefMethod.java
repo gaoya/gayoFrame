@@ -132,13 +132,13 @@ public class RefMethod {
 			logger.error("创建对象失败！", e);
 		} catch (NoSuchFieldException e) {
 			logger.error("创建对象失败！", e);
-			e.printStackTrace();
+			
 		} catch (SecurityException e) {
 			logger.error("创建对象失败！", e);
-			e.printStackTrace();
+			
 		} catch (NoSuchMethodException e) {
 			logger.error("创建对象失败！", e);
-			e.printStackTrace();
+			
 		}
 
 	}

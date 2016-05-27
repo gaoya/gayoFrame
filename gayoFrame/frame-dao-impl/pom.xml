@@ -6,11 +6,8 @@
     <groupId>com.frame</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.frame</groupId>
   <artifactId>frame-dao-impl</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>frame-dao-impl</name>
   <url>http://maven.apache.org</url>
 

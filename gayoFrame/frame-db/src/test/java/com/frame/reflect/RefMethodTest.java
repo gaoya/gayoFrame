@@ -34,7 +34,8 @@ public class RefMethodTest {
 	@Test
 	public void testSetterObjectString() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		refMe.setter(human, "age" ,12);
-		System.out.println(human.getAge());
+		refMe.setter(human, "name" ,"12313");
+		System.out.println(human.toString());
 	}
 
 }
@@ -69,6 +70,11 @@ class Human {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Human [name=" + name + ", age=" + age + "]";
 	}
 	
 	
