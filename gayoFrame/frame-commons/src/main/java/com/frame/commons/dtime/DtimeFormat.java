@@ -1,4 +1,4 @@
-package com.frame.dtime;
+package com.frame.commons.dtime;
 
 import java.text.Format;
 import java.text.ParseException;
@@ -11,8 +11,10 @@ import java.util.Date;
  *
  */
 public class DtimeFormat {
-	//完整的日期格式
+		//完整的日期格式
 	public static final String ALL_FORMAT = "yyyyMMddhhmmss" ;
+	public final static String ALL2_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
 	//时间戳
 	public static final String TIME_STAMP = "yyyyMMddhhmmssSSS" 	;
 	//年

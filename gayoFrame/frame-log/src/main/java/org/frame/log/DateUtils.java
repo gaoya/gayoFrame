@@ -1,4 +1,4 @@
-package org.frame.utils;
+package org.frame.log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +14,6 @@ public class DateUtils {
 	private static SimpleDateFormat simpleDateFormat = null ;
 	public static String current(String format ) {
 		simpleDateFormat = new SimpleDateFormat(format) ;
-		
 		return simpleDateFormat.format( new Date()) ;
 	}
 

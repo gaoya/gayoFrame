@@ -1,4 +1,4 @@
-package com.frame.unicode;
+package com.frame.commons.unicode;
 
 import java.io.UnsupportedEncodingException;
 /**

@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.frame.log.JdkLogger;
 import org.frame.log.Logger;
-import org.frame.log.impl.JdkLogger;
 
 import com.frame.db.DbAccess;
 
@@ -16,7 +16,7 @@ import com.frame.db.DbAccess;
  *
  */
 public class DbFactory {
-	private static Logger logger = JdkLogger.getLog(DbFactory.class) ;
+//	private static Logger logger = JdkLogger.getLog(DbFactory.class) ;
 	private static List<Connection> dbs = new ArrayList<Connection>() ;
 	private static String DRIVER = "";
 	private static String URL = "" ;
@@ -54,7 +54,7 @@ public class DbFactory {
 						try {
 							conn.close();
 						} catch (SQLException e) {
-							logger.error("移除Connection失败！",new SQLException());
+//							logger.error("移除Connection失败！",new SQLException());
 						} 
 						dbs.remove(count) ;
 					}

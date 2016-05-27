@@ -6,13 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.frame.reflect.RefClass;
-import com.frame.reflect.RefMethod;
 
 
 public class ResultMapper<T> {
-	private RefClass refClass = new RefClass() ;
-	private RefMethod refMethod = new RefMethod() ;
 	private List<String> columnName = null ;
 	private List<Object> columnType = null ;
 	private List<String> columnTypeNames = null ;
@@ -72,28 +68,29 @@ public class ResultMapper<T> {
 	}
 	
 	public List<Object> dataFromResultSet(String packageName ,ResultSet rs) throws SQLException {
-		deal(rs);
-		List<Object> ret = new ArrayList<Object>();
-//		//创建对象
-		Object object = null  ;
-		//若数据存在则，进行处理操作
-		while (rs.next()) {
-			object = refClass.createObjectFromPackageName(packageName) ;
-			String colName = "" ;;
-			Object colType = null ;
-			Object value = null ;
-			for (int i = 0 ;i <= columnName.size() ;i ++) {
-				colName = columnName.get(i).toLowerCase() ;
-				colType = columnType.get(i) ;
-				value = rs.getObject(colName) ;
-				
-				refMethod.setter(object, colName,value);
-				
-			}
-			
-			ret.add(object) ;
-		}
-		return ret;
+//		deal(rs);
+//		List<Object> ret = new ArrayList<Object>();
+////		//创建对象
+//		Object object = null  ;
+//		//若数据存在则，进行处理操作
+//		while (rs.next()) {
+//			object = refClass.createObjectFromPackageName(packageName) ;
+//			String colName = "" ;;
+//			Object colType = null ;
+//			Object value = null ;
+//			for (int i = 0 ;i <= columnName.size() ;i ++) {
+//				colName = columnName.get(i).toLowerCase() ;
+//				colType = columnType.get(i) ;
+//				value = rs.getObject(colName) ;
+//				
+//				refMethod.setter(object, colName,value);
+//				
+//			}
+//			
+//			ret.add(object) ;
+//		}
+//		return ret;
+		return null ;
 	}
 
 	public List<String> getColumnName() {

@@ -6,10 +6,10 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.frame.log.JdkLogger;
 import org.frame.log.Logger;
-import org.frame.log.impl.JdkLogger;
 
-import static com.frame.utils.StringUtils.* ;
+//import static com.frame.utils.StringUtils.* ;
 /**
  * Created by admin on 2016/5/23.
  *  创建Connection
@@ -18,7 +18,7 @@ import static com.frame.utils.StringUtils.* ;
  */
 public class DbAccess {
 	//日志信息
-	private static Logger logger = JdkLogger.getLog(DbAccess.class) ;
+	private static Logger logger = Logger.log() ;
     private static String DRIVER = "oracle.jdbc.driver.OracleDriver" ;
     private static String URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl" ;
     private static String USERNAME = "spvtxct" ;
@@ -26,19 +26,19 @@ public class DbAccess {
     private Connection con = null ;
     public DbAccess(String driver ,String url ,String username ,String password) {
     	Class<?> clazz = null ;
-    	//对各个属性进行判断操作
-    	if (!isEmpty(driver)) {
-    		DbAccess.DRIVER  = driver ;
-    	}
-    	if (!isEmpty(url)) {
-    		this.URL = url ;
-    	}
-    	if (!isEmpty(username)) {
-    		DbAccess.USERNAME = username ;
-    	}
-    	if (!isEmpty(password)) {
-    		this.PASSWORD = password ;
-    	}
+//    	//对各个属性进行判断操作
+//    	if (!isEmpty(driver)) {
+//    		DbAccess.DRIVER  = driver ;
+//    	}
+//    	if (!isEmpty(url)) {
+//    		this.URL = url ;
+//    	}
+//    	if (!isEmpty(username)) {
+//    		DbAccess.USERNAME = username ;
+//    	}
+//    	if (!isEmpty(password)) {
+//    		this.PASSWORD = password ;
+//    	}
     	//加载驱动
     	try {
     		if (clazz==null) {

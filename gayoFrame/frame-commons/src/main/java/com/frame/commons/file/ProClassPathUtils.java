@@ -1,25 +1,26 @@
-package com.frame.utils;
+package com.frame.commons.file;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
-import org.frame.log.impl.JdkLogger;
+
+import org.frame.log.JdkLogger;
 
 /**
  * Properties的工具类
  */
-public class ProFileUtils {
-	org.frame.log.Logger logger = JdkLogger.getLog(ProFileUtils.class) ;
+public class ProClassPathUtils {
+//	org.frame.log.Logger logger = JdkLogger.getLog(ProFileUtils.class) ;
     Properties properties ;
     /**
      * 读取properties 文件信息
      * @param path
      */
     public void load( String path) throws IOException {
-    	logger.info();
-        InputStream inputStream = ProFileUtils.this.getClass().getResourceAsStream(path);;
+//    	logger.info();
+        InputStream inputStream = ProClassPathUtils.this.getClass().getResourceAsStream(path);;
         load(inputStream);
     }
     public void load (InputStream inputStream) throws IOException {

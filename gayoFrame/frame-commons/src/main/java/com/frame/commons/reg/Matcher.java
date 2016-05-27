@@ -1,4 +1,4 @@
-package com.frame.reg;
+package com.frame.commons.reg;
 
 /**
  * 匹配

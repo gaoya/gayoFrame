@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.frame.commons.file.FileUtils;
+
 public class FileUtilsTest {
 	
 	@Test

@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.frame.log.JdkLogger;
 import org.frame.log.Logger;
-import org.frame.log.impl.JdkLogger;
 
 public class StatementFactory {
-	private static Logger logger  = JdkLogger.getLog(StatementFactory.class);
+//	private static Logger logger  = JdkLogger.getLog(StatementFactory.class);
 	private static PreparedStatement preparedStatement = null ;
 	private static Connection connection = DbFactory.product();
 	private static Statement statement ;
@@ -20,7 +20,7 @@ public class StatementFactory {
 		} catch (SQLException e) {
 			connection = DbFactory.product() ;
 			if(connection == null || connection.isClosed()) {
-				logger.error("数据库连接出现问题，请稍后再试！", e);
+//				logger.error("数据库连接出现问题，请稍后再试！", e);
 			}
 		}finally {
 			return preparedStatement ;
@@ -35,7 +35,7 @@ public class StatementFactory {
 		try {
 			statement = connection.createStatement() ;
 		} catch (SQLException e) {
-			logger.error("数据库连接出现问题，请稍后再试！", e);
+//			logger.error("数据库连接出现问题，请稍后再试！", e);
 		}
 		return statement;
 		

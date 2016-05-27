@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.frame.commons.reflect.RefMethod;
+
 public class RefMethodTest {
 	RefMethod refMe = new RefMethod() ;
 	Human human  = new Human() ;

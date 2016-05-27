@@ -1,4 +1,4 @@
-package com.frame.reflect;
+package com.frame.commons.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.frame.log.JdkLogger;
 import org.frame.log.Logger;
-import org.frame.log.impl.JdkLogger;
 
 /**
  * method 操作
@@ -15,7 +15,6 @@ import org.frame.log.impl.JdkLogger;
  *
  */
 public class RefMethod {
-	private Logger logger = JdkLogger.getLog(RefClass.class) ;
 	
 	/**
 	 * 	根据Class创建方法
@@ -29,29 +28,27 @@ public class RefMethod {
 		Class<?>[] listType = null  ;
 		Object ret = null ;
 		Object target = null ;
+		Method method;
 		if (param != null && param.length !=0 ) {
 			listType = new Class<?>[param.length] ;
 			for (int i = 0 ;i < param.length ;i ++ ) {
 				listType[i] = (param[i]).getClass();
 			}
 		}
+
 		try {
 			target = clazz.newInstance() ;
-			Method method = target.getClass().getDeclaredMethod(methodName, listType);
+			method = target.getClass().getDeclaredMethod(methodName, listType);
 			ret= method.invoke(target, param) ;
-		} catch (IllegalAccessException e) {
-			logger.error("创建对象失败！", e);
-		} catch (IllegalArgumentException e) {
-			logger.error("创建对象失败！", e);
-		} catch (InvocationTargetException e) {
-			logger.error("创建对象失败！", e);
-		} catch (NoSuchMethodException e) {
-			logger.error("创建对象失败！", e);
-		} catch (SecurityException e) {
-			logger.error("创建对象失败！", e);
-		}finally {
+		} catch (InstantiationException | NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
 			return ret ;
 		}
+
+
+
 	}
 	
 	public Object createMethodFromClassMethodName(Class<?> clazz ,String methodName,List<Object> param) {
@@ -85,16 +82,8 @@ public class RefMethod {
 				Method method = object.getClass().getDeclaredMethod("get" + methodName.substring(0, 1).toUpperCase() + methodName.substring(1));
 				ret= method.invoke(object) ;
 			}
-		} catch (IllegalAccessException e) {
-			logger.error("创建对象失败！", e);
-		} catch (IllegalArgumentException e) {
-			logger.error("创建对象失败！", e);
-		} catch (InvocationTargetException e) {
-			logger.error("创建对象失败！", e);
-		} catch (NoSuchMethodException e) {
-			logger.error("创建对象失败！", e);
-		} catch (SecurityException e) {
-			logger.error("创建对象失败！", e);
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+			// null 
 		}finally {
 			return ret ;
 		}
@@ -124,21 +113,8 @@ public class RefMethod {
 				Method me = object.getClass().getMethod("set" + methodName.substring(0, 1).toUpperCase() + methodName.substring(1), parameterTypes);  
 				me.invoke(object, param) ;
 			}
-		} catch (IllegalAccessException e) {
-			logger.error("创建对象失败！", e);
-		} catch (IllegalArgumentException e) {
-			logger.error("创建对象失败！", e);
-		} catch (InvocationTargetException e) {
-			logger.error("创建对象失败！", e);
-		} catch (NoSuchFieldException e) {
-			logger.error("创建对象失败！", e);
-			
-		} catch (SecurityException e) {
-			logger.error("创建对象失败！", e);
-			
-		} catch (NoSuchMethodException e) {
-			logger.error("创建对象失败！", e);
-			
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchFieldException | SecurityException | NoSuchMethodException e) {
+			// void 
 		}
 
 	}

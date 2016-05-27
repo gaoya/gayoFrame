@@ -11,10 +11,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.frame.log.impl.JdkLogger;
-import org.junit.experimental.categories.Categories.IncludeCategory;
-//Java中提供了四种元注解，专门负责注解其他的注解，分别如下
-
 //@Retention元注解，表示需要在什么级别保存该注释信息（生命周期）。可选的RetentionPoicy参数包括：
 //RetentionPolicy.SOURCE: 停留在java源文件，编译器被丢掉
 //RetentionPolicy.CLASS：停留在class文件中，但会被VM丢弃（默认）

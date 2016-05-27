@@ -8,6 +8,8 @@ import java.lang.reflect.Method;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.frame.commons.reflect.RefClass;
+
 public class RefClassTest {
 	RefClass refClass = new RefClass() ;
 

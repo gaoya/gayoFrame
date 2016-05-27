@@ -1,37 +1,37 @@
-package com.frame.reflect;
+package com.frame.commons.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import org.frame.log.JdkLogger;
 import org.frame.log.Logger;
-import org.frame.log.impl.JdkLogger;
 /**
  * 通过反射机制对class 进行操作
  * @author admin
  *
  */
 public class RefClass {
-	private Logger logger = JdkLogger.getLog(RefClass.class) ;
 	private Class<?> cls = null ;
 	/**
 	 * 通过一个packageName创建一个对象
 	 * @return
 	 */
+	@SuppressWarnings("finally")
 	public Object createObjectFromPackageName(String packageName) {
+
+		Object o = null;
 		try {
 			if (packageName!=null ) {
-				Object o = Class.forName(packageName).newInstance() ;
+				o = Class.forName(packageName).newInstance();
 				this.cls = o.getClass() ;
 				return o ;
 			}
-		} catch (InstantiationException e) {
-			logger.error("创建对象失败!", e);
-		} catch (IllegalAccessException e) {
-			logger.error("创建对象失败!", e);
-		} catch (ClassNotFoundException e) {
-			logger.error("创建对象失败!", e);
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			return o ;
 		}
-		return null;	
 	}
 	/**
 	 * 得到一个类的名称
